@@ -1,7 +1,7 @@
 const express = require("express");
 const fs = require("fs-extra");
-const shortid = require("shortid");
-const utils = require("./utils");
+const shortid = require("shortid");z
+
 
 getBooks = async () => {
   var buffer = await fs.readFile("books.json");
@@ -18,7 +18,7 @@ getComments = async () => {
   return JSON.parse(content);
 };
 
-saveComments = async products => {
+saveComments = async comments => {
   await fs.writeFile("comments.json", JSON.stringify(items));
 };
 
@@ -43,7 +43,7 @@ router.get("/", async (req, res) => {
 
 //http://localhost:3000/books?category=scifi
 router.get("/", async (req, res) => {
-    var books = await geBooks();
+    var books = await getBooks();
     res.send(
       books.filter(
         book =>
